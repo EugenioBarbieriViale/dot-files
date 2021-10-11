@@ -27,17 +27,17 @@ Plug 'honza/vim-snippets'
 Plug 'raimondi/delimitmate'
 call plug#end()
 
-" usr terminal background (R=14,G=14,B=22)
+" use terminal background (R=14,G=14,B=22)
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 
-" start NERDTree when Vim is started without file arguments.
+" show NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " select colorscheme
 colorscheme dracula   " onedark
 
-" disable arrowkeys (in normal, you can only use hjkl to move)
+" disable arrowkeys (when in normal mode, use hjkl to move)
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
