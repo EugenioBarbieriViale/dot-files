@@ -1,6 +1,6 @@
-## simple-vimrc
+# simple-vimrc
 
 Basic vimrc.
 
-# How to install:
+## How to install:
 - `git clone `
