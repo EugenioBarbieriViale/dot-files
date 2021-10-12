@@ -1,10 +1,14 @@
-#!/bin/bash                                                                                                                  
-                                                                                                                             
-set -e                                                                                                                       
-                                                                                                                             
-FILE=~/.vimrc                                                                                                                
-if test -f "$FILE"; then                                                                                                     
-    rm .vimrc                                                                                                                
-fi                                                                                                                           
-                                                                                                                             
+#!/bin/bash
+
+# --- IMPORTANT ---
+# if you execute this file, your vimrc (if it exists) will be removed and replaced with the simple-vimrc
+
+set -e
+
+FILE=~/.vimrc
+if test -f "$FILE"; then
+    echo "File .vimrc was found, so removing it."
+    rm .vimrc
+fi
+
 mv ~/simple-vimrc/.vimrc ~ 
