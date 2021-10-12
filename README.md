@@ -16,3 +16,4 @@ Paste the commands in your command line
 This vimrc has some plugins. To install them, you need the plug manager first. More informations here (https://github.com/junegunn/vim-plug)
 
 ### Screenshot:
+![Screenshot 2021-10-12 14 34 41](https://user-images.githubusercontent.com/82298389/136956937-1b1b0575-437f-4ad2-b9b2-9d4563424606.png)
