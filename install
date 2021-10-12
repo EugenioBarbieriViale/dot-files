@@ -5,10 +5,13 @@
 
 set -e
 
-FILE=~/.vimrc
+FILE=~/vimrc
 if test -f "$FILE"; then
     echo "File .vimrc was found, so removing it."
     rm .vimrc
 fi
 
-mv ~/simple-vimrc/.vimrc ~ 
+mv ~/simple-vimrc/simple-vimrc ~/simple-vimrc/.vimrc
+mv ~/simple-vimrc/.vimrc ~
+
+exit
