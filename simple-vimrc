@@ -1,3 +1,9 @@
+" vi and vim aren't compatible
+set nocompatible
+
+" encoding
+set encoding=utf-8
+
 " enable syntax
 syntax on
 
