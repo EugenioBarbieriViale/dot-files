@@ -1,6 +1,10 @@
-#!/bin/bash
-
-set -e
-
-rm .vimrc
-mv ~/simple-vimrc/.vimrc ~
+#!/bin/bash                                                                                                                  
+                                                                                                                             
+set -e                                                                                                                       
+                                                                                                                             
+FILE=~/.vimrc                                                                                                                
+if test -f "$FILE"; then                                                                                                     
+    rm .vimrc                                                                                                                
+fi                                                                                                                           
+                                                                                                                             
+mv ~/simple-vimrc/.vimrc ~ 
