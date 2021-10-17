@@ -1,6 +1,9 @@
 " vi and vim aren't compatible
 set nocompatible
 
+" helps plugins loading
+set filetype=off
+
 " encoding
 set encoding=utf-8
 
@@ -8,7 +11,7 @@ set encoding=utf-8
 syntax on
 
 " tabs and indentation
-set tabstop=4 shiftwidth=8 smarttab
+set tabstop=4 shiftwidth=4
 
 " search words by typing when in normal mode: /word
 set incsearch
@@ -41,10 +44,12 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " select colorscheme
-colorscheme dracula   " onedark
+colorscheme onedark
 
 " disable arrowkeys (when in normal mode, use hjkl to move)
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 nnoremap <Up> <Nop>
+
+map <-> :setlocal spell! spelllang=en_us<CR>
