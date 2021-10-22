@@ -1,3 +1,14 @@
+
+"          (`-')  _     <-. (`-')     (`-')           
+"         _(OO ) (_)       \(OO )_ <-.(OO ) _         
+"    ,--.(_/,-.\ ,-(`-'),--./  ,-.),------,)\-,-----. 
+"    \   \ / (_/ | ( OO)|   `.'   ||   /`. ' |  .--./ 
+"     \   /   /  |  |  )|  |'.'|  ||  |_.' |/_) (`-') 
+"    _ \     /_)(|  |_/ |  |   |  ||  .   .'||  |OO ) 
+" ,-.\-'\   /    |  |'->|  |   |  ||  |\  \(_'  '--'\ 
+" '-'    `-'     `--'   `--'   `--'`--' '--'  `-----' 
+
+
 " vi and vim aren't compatible
 set nocompatible
 
@@ -57,8 +68,11 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
+" disable automatic commenting on newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " select colorscheme
-colorscheme onedark
+colorscheme dracula
 
 " disable arrowkeys (when in normal mode, use hjkl to move)
 nnoremap <Down> <Nop>
@@ -66,4 +80,12 @@ nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 nnoremap <Up> <Nop>
 
-map <-> :setlocal spell! spelllang=en_us<CR>
+" shortcuts for spilt navigation (CTRL+hjkl)
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+
+" open corresponding .pdf/.html preview
+map <leader>p :!opout <c-r>%<CR><CR>
+
