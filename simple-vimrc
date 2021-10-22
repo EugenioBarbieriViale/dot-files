@@ -26,6 +26,9 @@ set path+=**
 " numbers
 set nu relativenumber
 
+" splits at the bottom and right
+set splitbelow splitright
+
 call plug#begin('~/.vim/autoload/')
 " colorschemes
 Plug 'joshdick/onedark.vim'
