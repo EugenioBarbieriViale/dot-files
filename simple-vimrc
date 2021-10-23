@@ -1,12 +1,12 @@
 
-"          (`-')  _     <-. (`-')     (`-')           
-"         _(OO ) (_)       \(OO )_ <-.(OO ) _         
-"    ,--.(_/,-.\ ,-(`-'),--./  ,-.),------,)\-,-----. 
-"    \   \ / (_/ | ( OO)|   `.'   ||   /`. ' |  .--./ 
-"     \   /   /  |  |  )|  |'.'|  ||  |_.' |/_) (`-') 
-"    _ \     /_)(|  |_/ |  |   |  ||  .   .'||  |OO ) 
-" ,-.\-'\   /    |  |'->|  |   |  ||  |\  \(_'  '--'\ 
-" '-'    `-'     `--'   `--'   `--'`--' '--'  `-----' 
+"          (`-')  _     <-. (`-')     (`-')
+"         _(OO ) (_)       \(OO )_ <-.(OO ) _
+"   ,--.(_/,-.\ ,-(`-'),--./  ,-.),------,)\-,-----.
+"   \   \ / (_/ | ( OO)|   `.'   ||   /`. ' |  .--./
+"    \   /   /  |  |  )|  |'.'|  ||  |_.' |/_) (`-')
+"    _ \     /_)(|  |_/ |  |   |  ||  .   .'||  |OO )
+" ,-.\-'\   /    |  |'->|  |   |  ||  |\  \(_'  '--'\
+" '-'    `-'     `--'   `--'   `--'`--' '--'  `-----'
 
 
 " vi and vim aren't compatible
@@ -37,8 +37,14 @@ set path+=**
 " numbers
 set nu relativenumber
 
-" splits at the bottom and right
+" scrolloff
+set scrolloff=5
+
+" splits at the bottom and right (:vsp for right split)
 set splitbelow splitright
+
+" set mapleader key
+let mapleader = " "
 
 call plug#begin('~/.vim/autoload/')
 " colorschemes
@@ -53,15 +59,6 @@ call plug#end()
 " use terminal background (R=14,G=14,B=22)
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 
-" file browsing (":edit")
-let g:netrw_altv          = 1
-let g:netrw_browse_split  = 4
-let g:netrw_liststyle     = 3
-let g:netrw_list_hide     = netrw_gitignore#Hide()
-let g:netrw_special_syntax= 1
-let g:netrw_banner        = 0
-
-
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -71,8 +68,12 @@ autocmd BufReadPost *
 " disable automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+
+" automatically deletes all trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
+
 " select colorscheme
-colorscheme dracula
+colorscheme pablo
 
 " disable arrowkeys (when in normal mode, use hjkl to move)
 nnoremap <Down> <Nop>
@@ -86,6 +87,25 @@ map <C-l> <C-w>l
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 
-" open corresponding .pdf/.html preview
-map <leader>p :!opout <c-r>%<CR><CR>
+" spelling check
+map <leader>- :setlocal spell! spelllang=en_us<CR>
+
+" copy and paste from others porgrams (CTRL+c,CTRL+v)
+vnoremap <C-c> "*y :let @+=@*<CR>
+vnoremap <C-v> "*p :let @+=@*<CR>
+
+" open the .vimrc from other files
+map <leader>v :!vim ~/.vimrc<CR>
+
+" word count
+map <leader>w :w !wc -w<CR>
+
+" file browsing
+let g:netrw_altv          = 1
+let g:netrw_browse_split  = 4
+let g:netrw_liststyle     = 3
+let g:netrw_list_hide     = netrw_gitignore#Hide()
+let g:netrw_special_syntax= 1
+let g:netrw_banner        = 0
+
 
