@@ -1,12 +1,11 @@
-
-"          (`-')  _     <-. (`-')     (`-')
-"         _(OO ) (_)       \(OO )_ <-.(OO ) _
-"   ,--.(_/,-.\ ,-(`-'),--./  ,-.),------,)\-,-----.
-"   \   \ / (_/ | ( OO)|   `.'   ||   /`. ' |  .--./
-"    \   /   /  |  |  )|  |'.'|  ||  |_.' |/_) (`-')
-"    _ \     /_)(|  |_/ |  |   |  ||  .   .'||  |OO )
-" ,-.\-'\   /    |  |'->|  |   |  ||  |\  \(_'  '--'\
-" '-'    `-'     `--'   `--'   `--'`--' '--'  `-----'
+"             88
+              ""
+"
+"   8b       d8 88 88,dPYba,,adPYba,  8b,dPPYba,  ,adPPYba,
+"   `8b     d8' 88 88P'   '88'    '8a 88P'   'Y8 a8'     ''
+"    `8b   d8'  88 88      88      88 88         8b
+" 888 `8b,d8'   88 88      88      88 88         "8a,   ,aa
+" 888   '8'     88 88      88      88 88          `"Ybbd8"'
 
 
 " vi and vim aren't compatible
@@ -38,7 +37,7 @@ set path+=**
 set nu relativenumber
 
 " scrolloff
-set scrolloff=5
+set scrolloff=7
 
 " splits at the bottom and right (:vsp for right split)
 set splitbelow splitright
@@ -46,20 +45,29 @@ set splitbelow splitright
 " set mapleader key
 let mapleader = " "
 
+" use tab for switching between buffers
+set switchbuf=usetab
+
 call plug#begin('~/.vim/autoload/')
 " colorschemes
 Plug 'joshdick/onedark.vim'
 Plug 'dracula/vim'
+Plug 'vim-scripts/xoria256.vim'
+Plug 'morhetz/gruvbox'
 
 " plugins for autocompletition
 Plug 'honza/vim-snippets'
 Plug 'raimondi/delimitmate'
+
+" autoformatting
+Plug 'dense-analysis/ale'
+
 call plug#end()
 
 " use terminal background (R=14,G=14,B=22)
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 
-" Return to last edit position when opening files (You want this!)
+" return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
@@ -68,12 +76,11 @@ autocmd BufReadPost *
 " disable automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-
 " automatically deletes all trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
 " select colorscheme
-colorscheme pablo
+colorscheme gruvbox
 
 " disable arrowkeys (when in normal mode, use hjkl to move)
 nnoremap <Down> <Nop>
@@ -95,10 +102,11 @@ vnoremap <C-c> "*y :let @+=@*<CR>
 vnoremap <C-v> "*p :let @+=@*<CR>
 
 " open the .vimrc from other files
-map <leader>v :!vim ~/.vimrc<CR>
+map <leader>v :find ~/.vimrc<CR>
+map <leader>b :find ~/.bashrc<CR>
 
-" word count
-map <leader>w :w !wc -w<CR>
+" terminal
+map <leader>t :below vertical terminal<CR>
 
 " file browsing
 let g:netrw_altv          = 1
@@ -107,5 +115,3 @@ let g:netrw_liststyle     = 3
 let g:netrw_list_hide     = netrw_gitignore#Hide()
 let g:netrw_special_syntax= 1
 let g:netrw_banner        = 0
-
-
