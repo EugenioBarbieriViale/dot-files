@@ -1,6 +1,6 @@
 # simple-vimrc
 
-Basic vimrc.
+Vimrc in less than 100 lines!
 
 ## How to install:
 ### Method 1
