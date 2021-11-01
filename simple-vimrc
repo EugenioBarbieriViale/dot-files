@@ -35,10 +35,10 @@ Plug 'raimondi/delimitmate'
 Plug 'dense-analysis/ale'
 call plug#end()
 
-colorscheme gruvbox
-
 " use terminal background
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
+
+colorscheme gruvbox
 
 " return to last edit position when opening files
 autocmd BufReadPost *
