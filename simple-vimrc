@@ -1,76 +1,46 @@
-"      _
+ "      _
 "     (_)
 " __   ___ _ __ ___  _ __ ___
 " \ \ / / | '_ ` _ \| '__/ __|
 "  \ V /| | | | | | | | | (__
 " (_)_/ |_|_| |_| |_|_|  \___|
 
-
-" vi and vim aren't compatible
-set nocompatible
-
-" helps plugins loading
-set filetype=off
-
-" encoding
-set encoding=utf-8
-
-" enable syntax
+" basics
 syntax on
-
-" tabs and indentation
+set nocompatible
+set filetype=off
+set encoding=utf-8
 set tabstop=4 shiftwidth=4
-
-" search words by typing when in normal mode: /word
 set incsearch
-
-" command-line completition menu (usage: tab)
 set wildmenu
-
-" path means a list of directories in which vim will search (:h path for more informations)
-" open file by typing :find filename (directory name not needed)
 set path+=**
-
-" numbers
 set nu relativenumber
-
-" scrolloff
 set scrolloff=7
-
-" splits at the bottom and right (:vsp for right split)
 set splitbelow splitright
-
 set cursorline
-
 set undofile
 
 " set mapleader key
 let mapleader = " "
 
-" use tab for switching between buffers
-set switchbuf=usetab
-
+" plugins
 call plug#begin('~/.vim/autoload/')
-" colorschemes
 Plug 'joshdick/onedark.vim'
 Plug 'dracula/vim'
 Plug 'vim-scripts/xoria256.vim'
 Plug 'morhetz/gruvbox'
 Plug 'miyakogi/slateblue.vim'
-
-" plugins for autocompletition
 Plug 'honza/vim-snippets'
 Plug 'raimondi/delimitmate'
-
-" autoformatting
 Plug 'dense-analysis/ale'
-
 call plug#end()
 
-" use terminal background (R=14,G=14,B=22)
+colorscheme gruvbox
+
+" use terminal background
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 
-" return to last edit position when opening files (You want this!)
+" return to last edit position when opening files
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
@@ -82,16 +52,12 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " automatically deletes all trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" select colorscheme
-colorscheme gruvbox
-
-" disable arrowkeys (when in normal mode, use hjkl to move)
+" shortcuts
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 nnoremap <Up> <Nop>
 
-" shortcuts for spilt navigation (CTRL+hjkl)
 map <C-h> <C-w>h
 map <C-l> <C-w>l
 map <C-j> <C-w>j
@@ -100,19 +66,15 @@ map <C-k> <C-w>k
 nnoremap <silent> j :normal! gj<CR>
 nnoremap <silent> k :normal! gk<CR>
 
-" spelling check
-map <leader>- :setlocal spell! spelllang=en_us<CR>
+vnoremap <C-c> "*y<CR>
+vnoremap <C-v> "*p<CR>
 
-" copy and paste from others porgrams (CTRL+c,CTRL+v)
-vnoremap <C-c> "*y :let @+=@*<CR>
-vnoremap <C-v> "*p :let @+=@*<CR>
+map <silent> <leader>v :find ~/.vimrc<CR>
+map <silent> <leader>b :find ~/.bashrc<CR>
 
-" open the .vimrc from other files
-map <leader>v :find ~/.vimrc<CR>
-map <leader>b :find ~/.bashrc<CR>
+map <silent> <leader>t :below vertical terminal<CR>
 
-" terminal
-map <leader>t :below vertical terminal<CR>
+map <leader>da ggVGd<CR>
 
 " file browsing
 let g:netrw_altv          = 1
