@@ -1,4 +1,4 @@
- "      _
+"      _
 "     (_)
 " __   ___ _ __ ___  _ __ ___
 " \ \ / / | '_ ` _ \| '__/ __|
@@ -35,21 +35,16 @@ Plug 'raimondi/delimitmate'
 Plug 'dense-analysis/ale'
 call plug#end()
 
-" use terminal background
+" autocommands
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
-
-colorscheme gruvbox
-
-" return to last edit position when opening files
+autocmd vimEnter *.cpp map <leader>g :w <CR> :!clear ; g++ --std=c++17 %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
+autocmd vimEnter *.py map <leader>p :w <CR> :!clear ; python3 %<CR>
+autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
-
-" disable automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" automatically deletes all trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
 " shortcuts
@@ -83,3 +78,6 @@ let g:netrw_liststyle     = 3
 let g:netrw_list_hide     = netrw_gitignore#Hide()
 let g:netrw_special_syntax= 1
 let g:netrw_banner        = 0
+
+" colorscheme
+colorscheme gruvbox
