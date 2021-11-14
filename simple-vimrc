@@ -115,5 +115,7 @@ let g:netrw_banner        = 0
      :execute 'write' src
 endfunction
 
+command! -nargs=1 Class call Class(<f-args>)
+
 " colorscheme
 colorscheme gruvbox
