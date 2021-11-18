@@ -15,10 +15,8 @@ set incsearch
 set wildmenu
 set path+=**
 set nu relativenumber
-set scrolloff=7
+set scrolloff=4
 set splitbelow splitright
-set cursorline
-set undofile
 
 " set mapleader key
 let mapleader = " "
@@ -33,11 +31,15 @@ Plug 'miyakogi/slateblue.vim'
 Plug 'honza/vim-snippets'
 Plug 'raimondi/delimitmate'
 Plug 'dense-analysis/ale'
+Plug 'flazz/vim-colorschemes'
+Plug 'psliwka/vim-smoothie'
 call plug#end()
 
 " autocommands
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
-autocmd vimEnter *.cpp map <leader>g :w <CR> :!clear ; g++ --std=c++17 %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
+autocmd vimEnter *.cpp map <leader>g :w <CR> :!clear ; g++ %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
+autocmd vimEnter *.c map <leader>c :w <CR> :!clear ; gcc %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
+autocmd vimEnter *.sh map <leader>s :w <CR> :!clear ; bash %; <CR>
 autocmd vimEnter *.py map <leader>p :w <CR> :!clear ; python3 %<CR>
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
 autocmd BufReadPost *
@@ -66,10 +68,11 @@ vnoremap <C-v> "*p<CR>
 
 map <silent> <leader>v :find ~/.vimrc<CR>
 map <silent> <leader>b :find ~/.bashrc<CR>
-
 map <silent> <leader>t :below vertical terminal<CR>
-
 map <leader>da ggVGd<CR>
+map <leader>s :source %<CR>
+map <leader>w :w<CR>
+map <leader>ex :!chmod +x %<CR>
 
 " file browsing
 let g:netrw_altv          = 1
@@ -90,30 +93,24 @@ let g:netrw_banner        = 0
      call append(4, "{")
      call append(5, "   public:")
      call append(6, "      ".a:ClassName."();")
-     call append(7, "      virtual ~".a:ClassName."();")
      call append(8, "   protected:")
      call append(9, "   private:")
      call append(10, "};")
      call append(11,"#endif // ".toupper(a:ClassName)."_H")
      :execute 'write' header
    "================== editing source file ========================
-     let src    = a:ClassName.".cpp"  
+     let src    = a:ClassName.".cpp"
      call append(0,"#include ".a:ClassName.".h")
      call append(1," ")
      call append(2,a:ClassName."::".a:ClassName."()")
      call append(3,"{")
      call append(4,"//ctor ")
      call append(5,"}")
-     call append(6," ")
-     call append(7," ")
-     call append(8,a:ClassName."::~".a:ClassName."()")
-     call append(9,"{")
-     call append(10,"//dtor ")
-     call append(11,"}")
      :execute 'write' src
 endfunction
 
+" shortcut :Class class
 command! -nargs=1 Class call Class(<f-args>)
 
 " colorscheme
-colorscheme gruvbox
+colorscheme mango
