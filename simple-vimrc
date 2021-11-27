@@ -30,7 +30,7 @@ Plug 'morhetz/gruvbox'
 Plug 'miyakogi/slateblue.vim'
 Plug 'honza/vim-snippets'
 Plug 'raimondi/delimitmate'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'flazz/vim-colorschemes'
 Plug 'psliwka/vim-smoothie'
 call plug#end()
@@ -38,10 +38,13 @@ call plug#end()
 " autocommands
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 autocmd vimEnter *.cpp map <leader>g :w <CR> :!clear ; g++ %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
+autocmd vimEnter *.cpp map <leader>z :w <CR> :!clear ; g++ -S %CR>
 autocmd vimEnter *.c map <leader>c :w <CR> :!clear ; gcc %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
 autocmd vimEnter *.sh map <leader>s :w <CR> :!clear ; bash %; <CR>
 autocmd vimEnter *.py map <leader>p :w <CR> :!clear ; python3 %<CR>
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
+autocmd BufNewFile *.py 0r ~/.vim/templates/init.py
+autocmd BufNewFile *.sh 0r ~/.vim/templates/init.sh
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
@@ -82,7 +85,7 @@ let g:netrw_list_hide     = netrw_gitignore#Hide()
 let g:netrw_special_syntax= 1
 let g:netrw_banner        = 0
 
-" c++ class generator
+"C++ Class Generator
  function! Class(ClassName)
     "==================  editing header file =====================
      let header = a:ClassName.".h"
@@ -109,8 +112,7 @@ let g:netrw_banner        = 0
      :execute 'write' src
 endfunction
 
-" shortcut :Class class
 command! -nargs=1 Class call Class(<f-args>)
 
 " colorscheme
-colorscheme mango
+colorscheme default
