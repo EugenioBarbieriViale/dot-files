@@ -7,6 +7,7 @@
 
 " basics
 syntax on
+filetype plugin indent on
 set nocompatible
 set filetype=off
 set encoding=utf-8
@@ -17,8 +18,12 @@ set path+=**
 set nu relativenumber
 set scrolloff=4
 set splitbelow splitright
+set showmatch
+set smartcase
+set clipboard+=unnamed
+set spelllang=en_us
+set cursorline
 
-" set mapleader key
 let mapleader = " "
 
 " plugins
@@ -30,9 +35,12 @@ Plug 'morhetz/gruvbox'
 Plug 'miyakogi/slateblue.vim'
 Plug 'honza/vim-snippets'
 Plug 'raimondi/delimitmate'
-" Plug 'dense-analysis/ale'
 Plug 'flazz/vim-colorschemes'
 Plug 'psliwka/vim-smoothie'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " autocommands
@@ -53,6 +61,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * %s/\s\+$//e
 
 " shortcuts
+inoremap <silent> ;; <Esc>
+
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
@@ -66,9 +76,6 @@ map <C-k> <C-w>k
 nnoremap <silent> j :normal! gj<CR>
 nnoremap <silent> k :normal! gk<CR>
 
-vnoremap <C-c> "*y<CR>
-vnoremap <C-v> "*p<CR>
-
 map <silent> <leader>v :find ~/.vimrc<CR>
 map <silent> <leader>b :find ~/.bashrc<CR>
 map <silent> <leader>t :below vertical terminal<CR>
@@ -77,6 +84,13 @@ map <leader>s :source %<CR>
 map <leader>w :w<CR>
 map <leader>ex :!chmod +x %<CR>
 
+" styling
+highlight Comment cterm=italic
+highlight SpellBad ctermbg=Red ctermfg=White
+highlight CursorLine ctermbg=Black cterm=NONE
+highlight CursorLineNr ctermbg=NONE cterm=bold ctermfg=NONE
+highlight LineNr ctermbg=NONE ctermfg=NONE
+
 " file browsing
 let g:netrw_altv          = 1
 let g:netrw_browse_split  = 4
@@ -84,6 +98,8 @@ let g:netrw_liststyle     = 3
 let g:netrw_list_hide     = netrw_gitignore#Hide()
 let g:netrw_special_syntax= 1
 let g:netrw_banner        = 0
+
+let g:airline#extensions#tabline#enabled = 1
 
 "C++ Class Generator
  function! Class(ClassName)
@@ -115,4 +131,4 @@ endfunction
 command! -nargs=1 Class call Class(<f-args>)
 
 " colorscheme
-colorscheme default
+colorscheme gruvbox
