@@ -22,7 +22,6 @@ set showmatch
 set smartcase
 set clipboard+=unnamed
 set spelllang=en_us
-set cursorline
 set foldenable
 set foldmethod=marker
 set foldmarker={{,}}
@@ -52,11 +51,11 @@ call plug#end()
 
 " autocommands {{
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
-autocmd vimEnter *.cpp map <leader>g :w <CR> g++ %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
-autocmd vimEnter *.cpp map <leader>z :w <CR> g++ -S %CR>
-autocmd vimEnter *.c map <leader>c :w <CR> gcc %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
-autocmd vimEnter *.sh map <leader>s :w <CR> bash %; <CR>
-autocmd vimEnter *.py map <leader>p :w <CR> python3 %<CR>
+autocmd vimEnter *.cpp map <leader>g :w <CR> !g++ %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
+autocmd vimEnter *.cpp map <leader>z :w <CR> !g++ -S %CR>
+autocmd vimEnter *.c map <leader>c :w <CR> !gcc %; if [ -f a.out ]; then time ./a.out; rm a.out; fi <CR>
+autocmd vimEnter *.sh map <leader>s :w <CR> !bash %; <CR>
+autocmd vimEnter *.py map <leader>p :w <CR> !python3 %<CR>
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
 autocmd BufNewFile *.py 0r ~/.vim/templates/init.py
 autocmd BufNewFile *.sh 0r ~/.vim/templates/init.sh
@@ -69,8 +68,6 @@ autocmd BufWritePre * %s/\s\+$//e
 " }}
 
 " shortcuts {{
-inoremap <silent> ;; <Esc>
-
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
@@ -86,7 +83,7 @@ nnoremap <silent> k :normal! gk<CR>
 
 map <silent> <leader>v :find ~/.config/nvim/init.vim<CR>
 map <silent> <leader>b :find ~/.bashrc<CR>
-map <silent> <leader>t :below vertical terminal<CR>
+map <silent> <leader>t :vsplit term://bash<CR>
 map <leader>da ggVGd<CR>
 map <leader>s :source %<CR>
 map <leader>w :w<CR>
@@ -116,7 +113,7 @@ highlight Folded cterm=bold ctermbg=Black ctermfg=White
 
 " airline config {{
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='biogoo'
+let g:airline_theme='simple'
 " }}
 
 " fzf config {{
@@ -169,5 +166,5 @@ command! -nargs=1 Class call Class(<f-args>)
 " }}
 
 " colorscheme {{
-colorscheme gruvbox
+colorscheme default
 " }}
