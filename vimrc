@@ -49,6 +49,10 @@ call plug#end()
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * %s/\s\+$//e
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
 
 " shortcuts
 nnoremap <Down> <Nop>
