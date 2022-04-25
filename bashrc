@@ -59,7 +59,7 @@ bakwht='\e[47m'   # white
 txtrst='\e[0m'    # text reset
 
 # prompt config
-export PS1="\e[0;31m\u\e[m at \e[0;32m\h\e[m in \e[0;34m\W\e[m \n $ "
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # handy aliases
 alias vim="nvim"
