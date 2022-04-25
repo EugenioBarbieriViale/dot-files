@@ -8,7 +8,7 @@ sudo apt update
 sudo apt install vim nano ranger neovim -yy
 
 # New .vimrc and .bashrc
-if test -f "~/.vimrc"; then
+if test -f "/home/$USER/.vimrc"; then
         echo "This operation will remove your current .vimrc. Proceed? (y/N): "
         read inp1
         if [inp1="y"]; then
@@ -16,7 +16,7 @@ if test -f "~/.vimrc"; then
         fi
 fi
 
-if test -f "~/.bashrc"; then
+if test -f "/home/$USER/.bashrc"; then
         echo "This operation will remove your current .bashrc. Proceed? (y/N): "
         read inp2
         if [inp2="y"]; then
@@ -26,7 +26,6 @@ fi
 
 cp vimrc init.vim
 if [[ -d "/home/$USER/.config/nvim"]] || mkdir ~/.config/nvim
-fi
 mv init.vim ~/.config/nvim/
 mv vimrc .vimrc
 mv bashrc .bashrc
