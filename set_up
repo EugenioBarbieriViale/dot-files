@@ -1,1 +1,38 @@
+#!/bin/sh
 
+# Stop execution if there are any errors
+set -e
+
+# Install things
+sudo apt update
+sudo apt install vim nano ranger neovim -yy
+
+# New .vimrc and .bashrc
+echo "This operation will remove current .vimrc and .bashrc. Proceed? (y/N): "
+read inp
+
+if [inp="y"]; then
+        VIMRC=~/vimrc
+        BASHRC=~/vimrc
+        if test -f "$VIMRC"; then
+                echo "File .vimrc was found, so removing it."
+                rm ~/.vimrc
+        fi
+        if test -f "$BASHRC"; then
+                echo "File .bashrc was found, so removing it."
+                rm ~/.bashrc
+        fi
+        mv vimrc .vimrc
+        mv bashrc .bashrc
+        mv .vimrc ~
+        mv .bashrc ~
+else
+        echo "Ok, skipping"
+fi
+
+# Install plug-manager
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+echo "Set up completed"
+exit
