@@ -11,7 +11,9 @@ filetype plugin indent on
 set nocompatible
 set filetype=off
 set encoding=utf-8
-set tabstop=4 shiftwidth=4
+set tabstop=4
+set shiftwidth=4 softtabstop=4
+set noexpandtab
 set incsearch
 set wildmenu
 set path+=**
@@ -24,6 +26,7 @@ set clipboard+=unnamed
 set spelllang=en_us
 set bg=dark
 set undofile
+set smartindent autoindent
 
 let mapleader = " "
 
@@ -49,10 +52,6 @@ call plug#end()
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd BufWritePre * %s/\s\+$//e
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
 
 " shortcuts
 nnoremap <Down> <Nop>
