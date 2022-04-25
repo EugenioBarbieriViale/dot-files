@@ -5,13 +5,22 @@
 
 set -e
 
-FILE=~/vimrc
-if test -f "$FILE"; then
+VIMRC=~/vimrc
+if test -f "$VIMRC"; then
     echo "File .vimrc was found, so removing it."
     rm ~/.vimrc
 fi
 
-mv simple-vimrc .vimrc
+mv vimrc .vimrc
 mv .vimrc ~
+
+BASHRC=~/vimrc
+if test -f "$BASHRC"; then
+    echo "File .bashrc was found, so removing it."
+    rm ~/.bashrc
+fi
+
+mv bashrc .bashrc
+mv .bashrc ~
 
 exit
