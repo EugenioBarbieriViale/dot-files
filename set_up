@@ -14,6 +14,7 @@ if test -f "~/.vimrc"; then
         if [inp1="y"]; then
                 rm ~/.vimrc
         fi
+fi
 
 if test -f "~/.bashrc"; then
         echo "This operation will remove your current .bashrc. Proceed? (y/N): "
@@ -24,8 +25,7 @@ if test -f "~/.bashrc"; then
 fi
 
 cp vimrc init.vim
-if test ! -d "~/.config/nvim/"; then
-        mkdir ~/.config/nvim/
+if [[ -d "/home/$USER/.config/nvim"]] || mkdir ~/.config/nvim
 fi
 mv init.vim ~/.config/nvim/
 mv vimrc .vimrc
