@@ -32,67 +32,50 @@ let mapleader = " "
 
 " plugins
 call plug#begin('~/.vim/autoload/')
-Plug 'joshdick/onedark.vim'
-Plug 'dracula/vim'
-Plug 'vim-scripts/xoria256.vim'
-Plug 'morhetz/gruvbox'
-Plug 'miyakogi/slateblue.vim'
-Plug 'honza/vim-snippets'
-Plug 'raimondi/delimitmate'
-Plug 'flazz/vim-colorschemes'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-commentary'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree' " file system explorer
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " adds syntax for nerdtree on most common file extensions
+Plug 'raimondi/delimitmate' " automatic closing of quotes, parenthesis, brackets, etc.
+Plug 'flazz/vim-colorschemes' " list of lots of colorschemes
+Plug 'tpope/vim-commentary' " comment and uncomment things by typing 'gcc'
+Plug 'vim-airline/vim-airline' " status/tabline
+Plug 'vim-airline/vim-airline-themes' " collection of themes for vim-airline
+Plug 'junegunn/fzf' " fuzzy finder to search and open files
+Plug 'ryanoasis/vim-devicons' " add filetype glyphs (icons) to various vim plugins
 call plug#end()
 
-" autocommands
+" use terminal background and not the colorscheme's one
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-autocmd BufWritePre * %s/\s\+$//e
 
-" shortcuts
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-nnoremap <Up> <Nop>
+" when opening a file, position the cursor at last position
+autocmd VimEnter * '"
 
+" easly travel between tabs
 map <C-h> <C-w>h
 map <C-l> <C-w>l
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 
+" treat lines that occupy more rows as a single one
 nnoremap <silent> j :normal! gj<CR>
 nnoremap <silent> k :normal! gk<CR>
 
-map <silent> <leader>v :find ~/.config/nvim/init.vim<CR>
+" travel easly between these files (for nvim: ~/.config/nvim/init.vim)
+map <silent> <leader>v :find ~/vimrc<CR>
 map <silent> <leader>b :find ~/.bashrc<CR>
-map <silent> <leader>t :vsplit term://bash<CR>
-map <leader>da ggVGd<CR>
-map <leader>s :source %<CR>
-map <leader>w :w<CR>
-map <leader>ex :!chmod +x %<CR>
+map <silent> <leader>z :find ~/.zshrc<CR>
 
+" source current file
+map <leader>s :source %<CR>
+
+" move between tabs by using the tab or Shift+tab buttons
 noremap <Tab> gt
 noremap <S-Tab> gT
-noremap <silent> <A-n> :tabnew<CR>
-noremap <silent> <A-,> :tabmove -<CR>
 
-noremap <silent> <A-.> :tabmove +<CR>
+" resize tab
 noremap <silent> <A-l> :vertical resize +2<CR>
 noremap <silent> <A-h> :vertical resize -2<CR>
 noremap <silent> <A-k> :resize +2<CR>
 noremap <silent> <A-j> :resize -2<CR>
-
-" styling
-highlight Comment cterm=italic
-highlight SpellBad ctermbg=Red ctermfg=White
-highlight CursorLine ctermbg=Black cterm=NONE
-highlight CursorLineNr ctermbg=NONE cterm=bold ctermfg=NONE
-highlight LineNr ctermbg=NONE ctermfg=NONE
-highlight Folded cterm=bold ctermbg=Black ctermfg=White
 
 " airline config
 let g:airline#extensions#tabline#enabled = 1
@@ -104,6 +87,11 @@ let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 
 " Empty value to disable preview window altogether
 let g:fzf_preview_window = []
+
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+nnoremap <leader>n :NERDTree<CR>
 
 map <leader>e :History<CR>
 map <leader>f :Files<CR>
