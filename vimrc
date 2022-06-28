@@ -39,8 +39,10 @@ Plug 'flazz/vim-colorschemes' " list of lots of colorschemes
 Plug 'tpope/vim-commentary' " comment and uncomment things by typing 'gcc'
 Plug 'vim-airline/vim-airline' " status/tabline
 Plug 'vim-airline/vim-airline-themes' " collection of themes for vim-airline
-Plug 'junegunn/fzf' " fuzzy finder to search and open files
 Plug 'ryanoasis/vim-devicons' " add filetype glyphs (icons) to various vim plugins
+Plug 'junegunn/fzf' " fuzzy finder to search and open files
+Plug 'junegunn/fzf.vim'
+Plug '~/.fzf'
 call plug#end()
 
 " use terminal background and not the colorscheme's one
@@ -60,12 +62,15 @@ nnoremap <silent> j :normal! gj<CR>
 nnoremap <silent> k :normal! gk<CR>
 
 " travel easly between these files (for nvim: ~/.config/nvim/init.vim)
-map <silent> <leader>v :find ~/vimrc<CR>
+map <silent> <leader>v :find ~/.vimrc<CR>
 map <silent> <leader>b :find ~/.bashrc<CR>
 map <silent> <leader>z :find ~/.zshrc<CR>
 
 " source current file
 map <leader>s :source %<CR>
+
+" open new tab
+noremap <leader>t :tabnew <CR>
 
 " move between tabs by using the tab or Shift+tab buttons
 noremap <Tab> gt
@@ -77,17 +82,13 @@ noremap <silent> <A-h> :vertical resize -2<CR>
 noremap <silent> <A-k> :resize +2<CR>
 noremap <silent> <A-j> :resize -2<CR>
 
-" airline config
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='simple'
+" --- airline ---
+" airline theme
+let g:airline_theme='minimalist'
+" airline upper section style
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" fzf config
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
-
-" Empty value to disable preview window altogether
-let g:fzf_preview_window = []
-
+" --- NERDTree ---
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
@@ -96,4 +97,4 @@ nnoremap <leader>n :NERDTree<CR>
 map <leader>e :History<CR>
 map <leader>f :Files<CR>
 
-colorscheme gruvbox
+colorscheme dark
