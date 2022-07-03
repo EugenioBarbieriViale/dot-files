@@ -120,3 +120,4 @@ alias .bashrc='vim ~/.bashrc'
 alias .zshrc='vim ~/.zshrc'
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias so='source ~/.zshrc'
+alias bs='browser-sync start --server --files "*.js, *.html, *.css"'
