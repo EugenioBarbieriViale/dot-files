@@ -43,6 +43,8 @@ Plug 'ryanoasis/vim-devicons' " add filetype glyphs (icons) to various vim plugi
 Plug 'junegunn/fzf' " fuzzy finder to search and open files
 Plug 'junegunn/fzf.vim'
 Plug '~/.fzf'
+Plug 'pangloss/vim-javascript' " js syntax highlighting and improved indendation
+Plug 'vim-python/python-syntax' " python syntax highlighting
 call plug#end()
 
 " use terminal background and not the colorscheme's one
