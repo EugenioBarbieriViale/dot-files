@@ -24,7 +24,7 @@ fi
 
 cp vimrc init.vim
 if [[ ! -d "/home/$USER/.config/nvim" ]]; then
-        mkdir ~/.config/nvim
+        mkdir /home/$USER/.config/nvim
 fi
 mv init.vim ~/.config/nvim/
 mv vimrc .vimrc
