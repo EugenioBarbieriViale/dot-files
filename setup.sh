@@ -5,7 +5,7 @@ set -e
 
 # Install things
 sudo apt update
-sudo apt install vim nano ranger htop neovim -yy
+sudo apt install vim nano ranger htop neovim python3-pip -yy
 
 # New .vimrc and .bashrc
 if [[ -f "/home/$USER/.vimrc" ]]; then
