@@ -6,7 +6,7 @@ Vimrc in less than 100 lines!
 ### Method 1
 Paste the commands in your command line
 - `git clone https://github.com/EugenioBarbieriViale/simple-vimrc.git`
-- `chmod +x install`
+- `chmod +x set_up.sh`
 - `./install`
 
 ### Method 2
