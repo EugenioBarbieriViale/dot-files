@@ -62,7 +62,6 @@ txtrst='\e[0m'    # text reset
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # handy aliases
-alias vim="nvim"
 alias ls='ls -hN --color=auto --group-directories-first'
 alias ll='ls -l'
 alias la='ls -A'
@@ -70,12 +69,10 @@ alias lla='ls -la'
 alias l='ls -CF'
 alias grep='grep --color=auto'
 alias torbrowser-launcher='cd .tor-browser_en-US/ && ./start-tor-browser.desktop && cd ~'
-alias .vimrc='nvim ~/.config/nvim/init.vim'
-alias .bashrc='nvim ~/.bashrc'
+alias .vimrc='vim ~/.vimrc'
+alias .bashrc='vim ~/.bashrc'
 alias so='source ~/.bashrc'
 alias a='sudo aptitude'
-alias v='nvim'
-alias sv='sudo nvim'
+alias v='vim'
 alias ccat='highlight --out-format=ansi'
 alias anime='ani-cli'
-alias star_wars='telnet towel.blinkenlights.nl'
