@@ -44,8 +44,7 @@ Plug 'ryanoasis/vim-devicons' " add filetype glyphs (icons) to various vim plugi
 Plug 'junegunn/fzf' " fuzzy finder to search and open files
 Plug 'junegunn/fzf.vim'
 Plug '~/.fzf'
-Plug 'pangloss/vim-javascript' " js syntax highlighting and improved indendation
-Plug 'vim-python/python-syntax' " python syntax highlighting
+Plug 'makerj/vim-pdf' " vie pdf in vim -> IMPORTANT apt install python3-poppler-qt5
 call plug#end()
 
 " use terminal background and not the colorscheme's one
@@ -92,8 +91,8 @@ let g:airline_powerline_fonts = 1
 
 " --- NERDTree ---
 " Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 nnoremap <leader>n :NERDTree<CR>
 
 " --- FZF ---
