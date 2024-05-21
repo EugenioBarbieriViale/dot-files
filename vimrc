@@ -30,6 +30,7 @@ set smartindent autoindent
 
 let mapleader = " "
 
+" IN ORDER TO HAVE DEVICONS WORKING, YOU HAVE TO USE A NERD FONT
 " plugins
 call plug#begin('~/.vim/autoload/')
 Plug 'preservim/nerdtree' " file system explorer
