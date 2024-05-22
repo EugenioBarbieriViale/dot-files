@@ -65,8 +65,6 @@ nnoremap <silent> k :normal! gk<CR>
 
 " travel easly between these files (for nvim: ~/.config/nvim/init.vim)
 map <silent> <leader>v :find ~/.vimrc<CR>
-map <silent> <leader>b :find ~/.bashrc<CR>
-map <silent> <leader>z :find ~/.zshrc<CR>
 
 " source current file
 map <leader>s :source %<CR>
