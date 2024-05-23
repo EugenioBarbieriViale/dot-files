@@ -60,6 +60,7 @@ txtrst='\e[0m'    # text reset
 
 # prompt config
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+eval "$(oh-my-posh init bash --config '~/.poshthemes/gruvbox.omp.json')" # NEEDS OH MY POSH INSTALLED
 
 # handy aliases
 alias ls='ls -hN --color=auto --group-directories-first'
