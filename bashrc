@@ -77,3 +77,5 @@ alias a='sudo aptitude'
 alias v='vim'
 alias ccat='highlight --out-format=ansi'
 alias anime='ani-cli'
+
+nerdfetch
