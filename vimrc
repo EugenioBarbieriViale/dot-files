@@ -44,7 +44,8 @@ Plug 'ryanoasis/vim-devicons' " add filetype glyphs (icons) to various vim plugi
 Plug 'junegunn/fzf' " fuzzy finder to search and open files
 Plug 'junegunn/fzf.vim'
 Plug '~/.fzf'
-Plug 'makerj/vim-pdf' " vie pdf in vim -> IMPORTANT apt install python3-poppler-qt5
+Plug 'makerj/vim-pdf' " view pdf in vim -> IMPORTANT apt install python3-poppler-qt5
+Plug 'lervag/vimtex' " Latex support and compiling from Vim
 call plug#end()
 
 " use terminal background and not the colorscheme's one
