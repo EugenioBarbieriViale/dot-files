@@ -6,4 +6,4 @@ Packages installed:
 - nitrogen
 - alacritty
 - picom
-- (Collision)[https://github.com/Elv13/collision]
+- [Collision](https://github.com/Elv13/collision)
