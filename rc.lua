@@ -6,7 +6,10 @@ pcall(require, "luarocks.loader")
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
+
+-- Floating mode
 require("collision")()
+
 -- Widget and layout library
 local wibox = require("wibox")
 -- Theme handling library
@@ -317,6 +320,10 @@ globalkeys = gears.table.join(
     -- Librewolf
     awful.key({ modkey },            "b",     function () awful.util.spawn("librewolf") end,
               {description = "run librewolf", group = "launcher"}),
+			
+    -- Pavucontrol
+    awful.key({ modkey },            "p",     function () awful.util.spawn("pavucontrol") end,
+              {description = "change volume", group = "launcher"}),
 
     awful.key({ modkey }, "x",
               function ()
@@ -327,10 +334,10 @@ globalkeys = gears.table.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"}),
+              {description = "lua execute prompt", group = "awesome"})
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+    -- awful.key({ modkey }, "p", function() menubar.show() end,
+    --           {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
@@ -526,5 +533,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 7
 
 -- Autostart
-awful.spawn.with_shell("nitrogen --set-zoom-fill --restore --random ~/Pictures/wallpapers")
+awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("picom")
