@@ -6,4 +6,6 @@ Packages installed:
 - nitrogen
 - alacritty
 - picom
-- [Collision](https://github.com/Elv13/collision)
+- pavucontrol
+- pcmanfm
+- [Collision](https://github.com/Elv13/collision) -> for floating mode
