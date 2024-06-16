@@ -98,7 +98,8 @@ nnoremap <leader>n :NERDTree<CR>
 map <leader>e :History<CR>
 map <leader>f :Files<CR>
 
-
 map <leader>b :!make && ./a.out<CR>
+map <leader>p :python3 %<CR>
+map <leader>t :tabnew<CR>
 
 colorscheme gruvbox
