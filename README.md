@@ -2,10 +2,11 @@
 Here there is my .bashrc, .vimrc and rc.lua (for awesome window manager)
 # Awesome
 Packages installed:
-- dmenu
+- rofi
 - nitrogen
 - alacritty
 - picom
 - pavucontrol
 - pcmanfm
 - [Collision](https://github.com/Elv13/collision) -> for floating mode
+- polybar
