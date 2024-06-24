@@ -31,14 +31,19 @@ alias ccat='highlight --out-format=ansi'
 
 alias blue='bluetuith'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-alias nitro="nitrogen --set-zoom-fill --head=1 --random Pictures/wallpapers/"
 
-# Change backlight
 alias setl="xbacklight -set"
 alias morel="xbacklight -inc 10"
 alias lessl="xbacklight -dec 10"
 
-# For monitor to function
-xrandr --output eDP1 --auto --output HDMI2 --auto --right-of eDP1
+alias monero="monero-wallet-gui"
+alias server="ssh eu@192.168.1.3 -p 1143 -i .ssh/id_ed25519"
+
+alias mp3="ffplay -v 0 -nodisp -autoexit"
+alias yt="yt-dlp -x --audio-format 'mp3' --audio-quality 0 -v"
+alias up="time-to-update.sh"
+
+alias monitor="xrandr --output eDP1 --auto --output HDMI2 --auto --right-of eDP1"
+alias nitro="nitrogen --set-zoom-fill --random /home/eu/Pictures/wallpapers"
 
 nerdfetch
