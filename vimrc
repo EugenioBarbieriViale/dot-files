@@ -80,6 +80,9 @@ let g:airline_powerline_fonts = 1
 
 " Remove banner from netrw
 let g:netrw_banner = 0
+let g:airline_section_z = 'lazzy'
+let g:airline_section_error = ''
+let g:airline_section_warning = ''
 
 map <leader>e :Explore<CR>
 map <leader>f :find 
