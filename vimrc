@@ -54,21 +54,27 @@ map <C-l> <C-w>l
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 
-" travel easly between these files (for nvim: ~/.config/nvim/init.vim)
-map <silent> <leader>v :find ~/.vimrc<CR>
+" resize tabs
+map <S-C-l> :vertical resize -2<CR>
+map <S-C-h> :vertical resize +2<CR>
+map <S-C-k> :resize +2<CR>
+map <S-C-j> :resize -2<CR>
 
-" source current file
+" handy shortcuts
+map <leader>e :Explore<CR>
+map <leader>f :find 
+map <leader>t :tabnew<CR>
+
+map <leader>b :!make && ./a.out<CR>
+map <leader>c :!gcc %<CR>
+map <leader>p :!python3 %<CR>
+
+map <silent> <leader>v :find ~/.vimrc<CR>
 map <leader>s :source %<CR>
 
 " move between tabs by using the tab or Shift+tab buttons
 noremap <Tab> gt
 noremap <S-Tab> gT
-
-" resize tab
-noremap <silent> <A-l> :vertical resize +2<CR>
-noremap <silent> <A-h> :vertical resize -2<CR>
-noremap <silent> <A-k> :resize +2<CR>
-noremap <silent> <A-j> :resize -2<CR>
 
 " --- airline ---
 " airline theme
@@ -78,18 +84,11 @@ let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 
-" Remove banner from netrw
-let g:netrw_banner = 0
 let g:airline_section_z = 'lazzy'
 let g:airline_section_error = ''
 let g:airline_section_warning = ''
 
-map <leader>e :Explore<CR>
-map <leader>f :find 
-map <leader>t :tabnew<CR>
-
-map <leader>b :!make && ./a.out<CR>
-map <leader>c :!gcc %<CR>
-map <leader>p :!python3 %<CR>
+" Remove banner from netrw
+let g:netrw_banner = 0
 
 colorscheme gruvbox
