@@ -33,19 +33,13 @@ let mapleader = " "
 " IN ORDER TO HAVE DEVICONS WORKING, YOU HAVE TO USE A NERD FONT
 " plugins
 call plug#begin('~/.vim/autoload/')
-Plug 'preservim/nerdtree' " file system explorer
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " adds syntax for nerdtree on most common file extensions
 Plug 'raimondi/delimitmate' " automatic closing of quotes, parenthesis, brackets, etc.
-Plug 'flazz/vim-colorschemes' " list of lots of colorschemes
 Plug 'tpope/vim-commentary' " comment and uncomment things by typing 'gcc'
 Plug 'vim-airline/vim-airline' " status/tabline
 Plug 'vim-airline/vim-airline-themes' " collection of themes for vim-airline
 Plug 'ryanoasis/vim-devicons' " add filetype glyphs (icons) to various vim plugins
-Plug 'junegunn/fzf' " fuzzy finder to search and open files
-Plug 'junegunn/fzf.vim'
-Plug '~/.fzf'
-Plug 'makerj/vim-pdf' " view pdf in vim -> IMPORTANT apt install python3-poppler-qt5
-Plug 'lervag/vimtex' " Latex support and compiling from Vim
+Plug 'lervag/vimtex' " latex support and compiling from Vim
+Plug 'morhetz/gruvbox' " gruvbox colorscheme
 call plug#end()
 
 " use terminal background and not the colorscheme's one
@@ -59,10 +53,6 @@ map <C-h> <C-w>h
 map <C-l> <C-w>l
 map <C-j> <C-w>j
 map <C-k> <C-w>k
-
-" treat lines that occupy more rows as a single one
-nnoremap <silent> j :normal! gj<CR>
-nnoremap <silent> k :normal! gk<CR>
 
 " travel easly between these files (for nvim: ~/.config/nvim/init.vim)
 map <silent> <leader>v :find ~/.vimrc<CR>
@@ -88,18 +78,15 @@ let g:airline_theme='powerlineish'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 
-" --- NERDTree ---
-" Start NERDTree when Vim is started without file arguments.
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-nnoremap <leader>n :NERDTree<CR>
+" Remove banner from netrw
+let g:netrw_banner = 0
 
-" --- FZF ---
-map <leader>e :History<CR>
-map <leader>f :Files<CR>
+map <leader>e :Explore<CR>
+map <leader>f :find 
+map <leader>t :tabnew<CR>
 
 map <leader>b :!make && ./a.out<CR>
-map <leader>p :python3 %<CR>
-map <leader>t :tabnew<CR>
+map <leader>c :!gcc %<CR>
+map <leader>p :!python3 %<CR>
 
 colorscheme gruvbox
