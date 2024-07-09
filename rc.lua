@@ -226,7 +226,7 @@ globalkeys = gears.table.join(
     -- Librewolf
     awful.key({ modkey },            "b",     function () awful.util.spawn("librewolf") end,
               {description = "run librewolf", group = "launcher"}),
-			  
+
     -- Pavucontrol 
     awful.key({ modkey },            "p",     function () awful.util.spawn("pavucontrol") end,
               {description = "change volume", group = "launcher"}),
