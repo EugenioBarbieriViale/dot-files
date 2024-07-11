@@ -53,6 +53,9 @@ autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 " remove different color of numbers
 autocmd ColorScheme * highlight! clear LineNr
 
+" change highlighted text
+autocmd ColorScheme * highlight! Visual cterm=none ctermbg=darkgrey ctermfg=none
+
 " when opening a file, position the cursor at last position
 autocmd VimEnter * '"
 
@@ -103,5 +106,4 @@ let g:netrw_banner = 0
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
-" colorscheme base16-default-dark
-colorscheme gruvbox
+colorscheme base16-default-dark
