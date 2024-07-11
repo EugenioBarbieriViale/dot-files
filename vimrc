@@ -90,7 +90,12 @@ noremap <S-Tab> gT
 " --- airline ---
 " airline theme
 let g:airline#extensions#tabline#enabled = 1 " enable buffers
-let g:airline_theme='powerlineish'
+" let g:airline_theme='powerlineish'
+" let g:airline_theme='distinguished'
+" let g:airline_theme='simple'
+" let g:airline_theme='term'
+let g:airline_theme='wombat'
+
 " airline upper section style
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
@@ -99,10 +104,10 @@ let g:airline_section_z = 'lazzy'
 let g:airline_section_error = ''
 let g:airline_section_warning = ''
 
-" Remove banner from netrw
+" remove banner from netrw
 let g:netrw_banner = 0
 
-" Add italic for monokai colorscheme
+" add italic for monokai colorscheme
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
