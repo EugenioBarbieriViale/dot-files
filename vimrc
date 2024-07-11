@@ -39,11 +39,19 @@ Plug 'vim-airline/vim-airline' " status/tabline
 Plug 'vim-airline/vim-airline-themes' " collection of themes for vim-airline
 Plug 'ryanoasis/vim-devicons' " add filetype glyphs (icons) to various vim plugins
 Plug 'lervag/vimtex' " latex support and compiling from Vim
-Plug 'morhetz/gruvbox' " gruvbox colorscheme
+
+" Colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'crusoexia/vim-monokai'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'tinted-theming/base16-vim'
 call plug#end()
 
 " use terminal background and not the colorscheme's one
 autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
+
+" remove different color of numbers
+autocmd ColorScheme * highlight! clear LineNr
 
 " when opening a file, position the cursor at last position
 autocmd VimEnter * '"
@@ -91,4 +99,9 @@ let g:airline_section_warning = ''
 " Remove banner from netrw
 let g:netrw_banner = 0
 
+" Add italic for monokai colorscheme
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
+
+" colorscheme base16-default-dark
 colorscheme gruvbox
