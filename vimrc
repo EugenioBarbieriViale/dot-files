@@ -56,6 +56,9 @@ autocmd ColorScheme * highlight! clear LineNr
 " change highlighted text
 autocmd ColorScheme * highlight! Visual cterm=none ctermbg=darkgrey ctermfg=none
 
+" change autocompletition color
+autocmd ColorScheme * highlight! Pmenu ctermbg=darkgray guibg=darkgray
+
 " when opening a file, position the cursor at last position
 autocmd VimEnter * '"
 
@@ -66,10 +69,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 
 " resize tabs
-map <S-C-l> :vertical resize -2<CR>
-map <S-C-h> :vertical resize +2<CR>
-map <S-C-k> :resize +2<CR>
-map <S-C-j> :resize -2<CR>
+" map <S-C-l> :vertical resize -2<CR>
+" map <S-C-h> :vertical resize +2<CR>
+" map <S-C-k> :resize +2<CR>
+" map <S-C-j> :resize -2<CR>
 
 " handy shortcuts
 map <leader>e :Explore<CR>
@@ -77,7 +80,7 @@ map <leader>f :find
 map <leader>t :tabnew<CR>
 
 map <leader>b :!make && ./a.out<CR>
-map <leader>c :!gcc %<CR>
+map <leader>c :!gcc % && ./a.out<CR>
 map <leader>p :!python3 %<CR>
 
 map <silent> <leader>v :find ~/.vimrc<CR>
@@ -90,11 +93,11 @@ noremap <S-Tab> gT
 " --- airline ---
 " airline theme
 let g:airline#extensions#tabline#enabled = 1 " enable buffers
+let g:airline_theme='wombat'
 " let g:airline_theme='powerlineish'
 " let g:airline_theme='distinguished'
 " let g:airline_theme='simple'
 " let g:airline_theme='term'
-let g:airline_theme='wombat'
 
 " airline upper section style
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -112,3 +115,4 @@ let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
 colorscheme base16-default-dark
+" colorscheme gruvbox
