@@ -58,6 +58,7 @@ autocmd ColorScheme * highlight! Visual cterm=none ctermbg=darkgrey ctermfg=none
 
 " change autocompletition color
 autocmd ColorScheme * highlight! Pmenu ctermbg=darkgray guibg=darkgray
+autocmd ColorScheme * highlight! StatusLine ctermbg=darkgray guibg=darkgray
 
 " when opening a file, position the cursor at last position
 autocmd VimEnter * '"
@@ -79,9 +80,9 @@ map <leader>e :Explore<CR>
 map <leader>f :find 
 map <leader>t :tabnew<CR>
 
-map <leader>b :!make && ./a.out<CR>
-map <leader>c :!gcc % && ./a.out<CR>
-map <leader>p :!python3 %<CR>
+map <leader>b :term make && ./a.out<CR>
+map <leader>c :term gcc % && ./a.out<CR>
+map <leader>p :term python3 %<CR>
 
 map <silent> <leader>v :find ~/.vimrc<CR>
 map <leader>s :source %<CR>
