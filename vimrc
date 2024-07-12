@@ -101,11 +101,10 @@ noremap <S-Tab> gT
 let g:airline#extensions#tabline#enabled = 1 " enable buffers
 
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
-let g:airline_theme='kolor'
+let g:airline_theme='kolor' " --------------- good with monokai
+" let g:airline_theme='powerlineish' " ------ good with gruvbox
+" let g:airline_theme='minimalist' " -------- good with candle-grey
 " let g:airline_theme='violet'
-" let g:airline_theme='minimalist' " good with candle-grey
-" let g:airline_theme='powerlineish'
-" let g:airline_theme='distinguished'
 " let g:airline_theme='term'
 
 " airline upper section style
@@ -123,4 +122,4 @@ let g:netrw_banner = 0
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
-colorscheme candle-grey
+colorscheme monokai
