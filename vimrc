@@ -55,7 +55,7 @@ autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE
 autocmd ColorScheme * highlight! clear LineNr
 
 " change highlighted text
-autocmd ColorScheme * highlight! Visual cterm=none ctermbg=darkgrey ctermfg=none
+autocmd ColorScheme * highlight! Visual cterm=none ctermbg=darkgrey ctermfg=white
 
 " change autocompletition color
 autocmd ColorScheme * highlight! Pmenu ctermbg=darkgray guibg=darkgray
@@ -99,10 +99,13 @@ noremap <S-Tab> gT
 " --- airline ---
 " airline theme
 let g:airline#extensions#tabline#enabled = 1 " enable buffers
-" let g:airline_theme='wombat'
+
+" https://github.com/vim-airline/vim-airline/wiki/Screenshots
+let g:airline_theme='kolor'
+" let g:airline_theme='violet'
+" let g:airline_theme='minimalist' " good with candle-grey
 " let g:airline_theme='powerlineish'
-let g:airline_theme='distinguished'
-" let g:airline_theme='simple'
+" let g:airline_theme='distinguished'
 " let g:airline_theme='term'
 
 " airline upper section style
@@ -120,4 +123,4 @@ let g:netrw_banner = 0
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
-colorscheme candle-grey-transparent
+colorscheme candle-grey
