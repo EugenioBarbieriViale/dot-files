@@ -13,7 +13,7 @@ set filetype=off
 set encoding=UTF-8
 set tabstop=4
 set shiftwidth=4 softtabstop=4
-set noexpandtab
+set expandtab
 set incsearch
 set wildmenu
 set path+=**
@@ -45,6 +45,7 @@ Plug 'morhetz/gruvbox'
 Plug 'crusoexia/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tinted-theming/base16-vim'
+Plug 'aditya-azad/candle-grey'
 call plug#end()
 
 " use terminal background and not the colorscheme's one
@@ -80,9 +81,13 @@ map <leader>e :Explore<CR>
 map <leader>f :find 
 map <leader>t :tabnew<CR>
 
-map <leader>b :term make && ./a.out<CR>
-map <leader>c :term gcc % && ./a.out<CR>
+map <leader>b :!make<CR>
+map <leader>c :!gcc %<CR>
+map <leader>a :term ./a.out<CR>
 map <leader>p :term python3 %<CR>
+
+map <leader>n :bnext<cr>
+map <leader>d :bdelete<cr>
 
 map <silent> <leader>v :find ~/.vimrc<CR>
 map <leader>s :source %<CR>
@@ -94,9 +99,9 @@ noremap <S-Tab> gT
 " --- airline ---
 " airline theme
 let g:airline#extensions#tabline#enabled = 1 " enable buffers
-let g:airline_theme='wombat'
+" let g:airline_theme='wombat'
 " let g:airline_theme='powerlineish'
-" let g:airline_theme='distinguished'
+let g:airline_theme='distinguished'
 " let g:airline_theme='simple'
 " let g:airline_theme='term'
 
@@ -115,5 +120,4 @@ let g:netrw_banner = 0
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
-colorscheme base16-default-dark
-" colorscheme gruvbox
+colorscheme candle-grey-transparent
