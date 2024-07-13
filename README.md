@@ -13,6 +13,7 @@ Packages installed:
 
 # How it looks like
 ## Vim
+![vim_monokai](https://github.com/user-attachments/assets/60c5e676-62be-400c-98b6-36a5653bb8a5)
 ![my_vim](https://github.com/EugenioBarbieriViale/dot-files/assets/82298389/c8114152-8718-491b-982f-2743cc018a54)
 ![rice3](https://github.com/EugenioBarbieriViale/dot-files/assets/82298389/8eb1dbf1-9a72-4f7b-8d53-2e0becdd8acb)
 ## Desktop
