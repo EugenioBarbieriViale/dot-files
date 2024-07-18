@@ -48,4 +48,7 @@ alias up="time-to-update.sh"
 alias monitor="xrandr --output eDP1 --auto --output HDMI2 --auto --right-of eDP1"
 alias nitro="nitrogen --set-zoom-fill --random /home/eu/Pictures/wallpapers"
 
+alias r="ranger"
+alias open="xdg-open"
+
 nerdfetch
