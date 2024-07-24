@@ -104,7 +104,6 @@ let g:airline#extensions#tabline#enabled = 1 " enable buffers
 let g:airline_theme='kolor' " --------------- good with monokai
 " let g:airline_theme='powerlineish' " ------ good with gruvbox
 " let g:airline_theme='minimalist' " -------- good with candle-grey
-" let g:airline_theme='violet'
 " let g:airline_theme='term'
 
 " airline upper section style
