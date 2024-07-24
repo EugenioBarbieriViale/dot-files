@@ -81,7 +81,7 @@ map <leader>e :Explore<CR>
 map <leader>f :find 
 map <leader>t :tabnew<CR>
 
-map <leader>b :!make<CR>
+map <leader>b :term ./build.sh<CR>
 map <leader>c :!gcc %<CR>
 map <leader>a :term ./a.out<CR>
 map <leader>p :term python3 %<CR>
