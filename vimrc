@@ -82,11 +82,20 @@ map <leader>f :find
 map <leader>t :tabnew<CR>
 
 map <leader>b :term ./build.sh<CR>
+map <leader>m :term make<CR>
+
 map <leader>c :!gcc %<CR>
-map <leader>a :term ./a.out<CR>
-map <leader>p :term python3 %<CR>
+map <leader>g :!g++ %<CR>
+map <leader>a :term ./%:r<CR>
+
+map <leader>q :term python3 %<CR>
+
+map <leader>r :term cargo run<CR>
+map <leader>j :term cargo check<CR>
+map <leader>h :term rustc %<CR>
 
 map <leader>n :bnext<cr>
+map <leader>p :bprev<cr>
 map <leader>d :bdelete<cr>
 
 map <silent> <leader>v :find ~/.vimrc<CR>
@@ -101,16 +110,16 @@ noremap <S-Tab> gT
 let g:airline#extensions#tabline#enabled = 1 " enable buffers
 
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
-let g:airline_theme='kolor' " --------------- good with monokai
-" let g:airline_theme='powerlineish' " ------ good with gruvbox
-" let g:airline_theme='minimalist' " -------- good with candle-grey
+" let g:airline_theme='kolor' " --------------- good with monokai
+let g:airline_theme='powerlineish' " ---------- good with gruvbox
+" let g:airline_theme='minimalist' " ---------- good with candle-grey
 " let g:airline_theme='term'
 
 " airline upper section style
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 
-let g:airline_section_z = 'lazzy'
+let g:airline_section_z = 'lazy'
 let g:airline_section_error = ''
 let g:airline_section_warning = ''
 
@@ -121,4 +130,10 @@ let g:netrw_banner = 0
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 
-colorscheme monokai
+autocmd StdinReadPre * let g:isReadingFromStdin = 1
+autocmd VimEnter * if !argc() && !exists('g:isReadingFromStdin') | :Explore | endif
+
+let g:vimtex_compiler_method = 'tectonic'
+
+" colorscheme monokai
+colorscheme gruvbox
