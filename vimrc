@@ -39,6 +39,7 @@ Plug 'vim-airline/vim-airline' " status/tabline
 Plug 'vim-airline/vim-airline-themes' " collection of themes for vim-airline
 Plug 'ryanoasis/vim-devicons' " add filetype glyphs (icons) to various vim plugins
 Plug 'lervag/vimtex' " latex support and compiling from Vim
+Plug 'rust-lang/rust.vim'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -84,8 +85,8 @@ map <leader>t :tabnew<CR>
 map <leader>b :term ./build.sh<CR>
 map <leader>m :term make<CR>
 
-map <leader>c :!gcc %<CR>
-map <leader>g :!g++ %<CR>
+map <leader>c :!gcc % -o %:r<CR>
+map <leader>g :!g++ % -o %:r<CR>
 map <leader>a :term ./%:r<CR>
 
 map <leader>q :term python3 %<CR>
@@ -111,8 +112,8 @@ let g:airline#extensions#tabline#enabled = 1 " enable buffers
 
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 " let g:airline_theme='kolor' " --------------- good with monokai
-let g:airline_theme='powerlineish' " ---------- good with gruvbox
-" let g:airline_theme='minimalist' " ---------- good with candle-grey
+let g:airline_theme='powerlineish' " ------ good with gruvbox
+" let g:airline_theme='minimalist' " -------- good with candle-grey
 " let g:airline_theme='term'
 
 " airline upper section style
@@ -134,6 +135,8 @@ autocmd StdinReadPre * let g:isReadingFromStdin = 1
 autocmd VimEnter * if !argc() && !exists('g:isReadingFromStdin') | :Explore | endif
 
 let g:vimtex_compiler_method = 'tectonic'
+
+autocmd BufNewFile *.tex 0r ~/.vim/templates/skeleton.tex
 
 " colorscheme monokai
 colorscheme gruvbox
