@@ -19,6 +19,9 @@ PS1='[\u@\h \W]\$ '
 # cd dir/ by typing only the name
 shopt -s autocd
 
+alias vim='nvim'
+alias .vimrc='nvim ~/.config/nvim/init.lua'
+
 # handy aliases
 alias ls='ls -hN --color=auto --group-directories-first'
 alias ll='ls -l'
@@ -26,29 +29,31 @@ alias la='ls -A'
 alias lla='ls -la'
 alias l='ls -CF'
 alias grep='grep --color=auto'
-alias .vimrc='vim ~/.vimrc'
 alias .bashrc='vim ~/.bashrc'
 alias so='source ~/.bashrc'
 alias ccat='highlight --out-format=ansi'
 
 alias blue='bluetuith'
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-
-alias setl="xbacklight -set"
-alias morel="xbacklight -inc 10"
-alias lessl="xbacklight -dec 10"
 
 alias monero="monero-wallet-gui"
-alias server="ssh eu@192.168.1.3 -p 1143 -i .ssh/id_ed25519"
-
-alias mp3="ffplay -v 0 -nodisp -autoexit"
-alias yt="yt-dlp -x --audio-format 'mp3' --audio-quality 0 -v"
-alias up="time-to-update.sh"
 
 alias monitor="xrandr --output eDP1 --auto --output HDMI2 --auto --right-of eDP1"
+alias lim="xrandr --output eDP1 --auto --output HDMI2 --auto --same-as eDP1"
 alias nitro="nitrogen --set-zoom-fill --random /home/eu/Pictures/wallpapers"
 
-alias r="ranger"
 alias open="xdg-open"
 
+alias birth="echo 16 November 2023"
+
+alias scan="iwctl station wlan0 scan"
+
+alias it="setxkbmap -layout it"
+alias us="setxkbmap -layout us"
+
+alias sy="rsync -av ~/.config/nvim/ ~/programming/dot-files/nvim/"
+
+export RUST_BACKTRACE=1
+
 nerdfetch
+./.girlfriend.sh
+./system-update
