@@ -15,7 +15,29 @@ require("mason").setup({
     }
 })
 
-require("supermaven-nvim").setup({})
+require("supermaven-nvim").setup({
+    keymaps = {
+        accept_suggestion = "<Tab>",
+        clear_suggestion = "<C-j>",
+        accept_word = "<C-k>",
+    },
+    ignore_filetypes = {
+        "tex",
+        "markdown",
+        "markdown_inline",
+        "text",
+    },
+    color = {
+        suggestion_color = "#ffffff",
+        cterm = 244,
+    },
+    log_level = "info",
+    disable_inline_completion = false,
+    disable_keymaps = false,
+    condition = function()
+        return false
+    end
+})
 
 vim.diagnostic.config({
   virtual_text = true,
@@ -26,6 +48,16 @@ vim.diagnostic.open_float()
 vim.lsp.config("lua-language-server", {
     cmd = {"lua-language-server", "--stdio"},
     filetypes = {"lua"},
+})
+
+vim.lsp.config("typescript-language-server", {
+    cmd = {"typescript-language-server", "--stdio"},
+    filetypes = {"typescript", "javascript"},
+})
+
+vim.lsp.config("opencl-language-server", {
+    cmd = {"opencl-language-server"},
+    filetypes = {"opencl"},
 })
 
 local function on_attach(client, bufnr)
@@ -50,9 +82,8 @@ local function start_autocomplete(name, cmd)
     vim.lsp.start(config)
 end
 
-
 vim.lsp.enable("rust_analyzer")
-start_autocomplete("rust_analyzer")
+-- start_autocomplete("rust_analyzer", { "rust-analyzer" })
 
 vim.lsp.enable("pyright")
 start_autocomplete("pyright", { "pyright-langserver", "--stdio" })
@@ -65,3 +96,8 @@ start_autocomplete("clangd", { "clangd" })
 
 vim.lsp.enable("gopls")
 start_autocomplete("gopls", { "gopls" })
+
+vim.lsp.enable("typescript-language-server")
+-- start_autocomplete("typescript-language-server", { "lua-language-server", "--stdio" })
+
+vim.lsp.enable("opencl-language-server")

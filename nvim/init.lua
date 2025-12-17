@@ -24,10 +24,15 @@ set.autoindent = true
 set.cursorline = true
 set.completeopt = { "menuone", "noselect", "popup" }
 set.undofile = true
+set.termguicolors = true
 
-g.netrw_banner = 0
 g.vimtex_view_method = "zathura"
 g.vimtex_compiler_method = "tectonic"
+
+-- g.loaded_netrw = 1
+-- g.loaded_netrwPlugin = 1
+g.netrw_banner = 0
+
 
 require("gruvbox").setup({
   terminal_colors = true,
@@ -45,6 +50,44 @@ require("gruvbox").setup({
 
 require("bufferline").setup{}
 
+require("nvim-tree").setup({
+    sort = {
+        sorter = "case_sensitive",
+    },
+    view = {
+        width = 30,
+    },
+    renderer = {
+        group_empty = true,
+    },
+    filters = {
+        dotfiles = true,
+    },
+})
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+  ingore_install = { "latex" },
+
+  sync_install = false,
+  auto_install = true,
+
+  highlight = {
+    enable = true,
+
+    -- disabled languages
+    disable = function(lang, buf)
+        local max_filesize = 100 * 1024 -- 100 KB
+        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats and stats.size > max_filesize then
+            return true
+        end
+    end,
+
+    additional_vim_regex_highlighting = false,
+  },
+}
+
 -- use terminal color as background
 vim.cmd([[autocmd ColorScheme * highlight! Normal ctermbg=NONE guibg=NONE]])
 
@@ -59,7 +102,7 @@ vim.cmd([[autocmd VimEnter * if line("'\"") > 0 && line("'\"") <= line("$") | ex
 
 -- if no file is opened, open the explorer
 vim.cmd([[autocmd StdinReadPre * let g:isReadingFromStdin = 1]])
-vim.cmd([[autocmd VimEnter * if !argc() && !exists('g:isReadingFromStdin') | :Explore | endif]])
+vim.cmd([[autocmd VimEnter * if !argc() && !exists('g:isReadingFromStdin') | :NvimTreeOpen | endif]])
 
 -- vim.cmd([[colorscheme gruvbox]])
 -- vim.cmd([[colorscheme rose-pine]])

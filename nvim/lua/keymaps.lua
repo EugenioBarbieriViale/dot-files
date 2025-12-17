@@ -5,6 +5,9 @@ local keymap = vim.api.nvim_set_keymap
 
 keymap("n", "Y", "yy", opts)
 
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
+
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -26,8 +29,9 @@ keymap("n", "<leader>s", ":source %<cr>", opts)
 keymap("n", "<leader>v", ":find ~/.config/nvim/init.lua<cr>", opts)
 
 keymap("n", "<leader>e", ":Explore<cr>", opts)
-keymap("n", "<leader>f", ":Telescope find_files<cr>", opts)
-keymap("n", "<C-f>", ":Telescope oldfiles<cr>", opts)
+keymap("n", "<C-e>", ":NvimTreeOpen<cr>", opts)
+keymap("n", "<leader>f", ":Telescope oldfiles<cr>", opts)
+keymap("n", "<C-f>", ":Telescope find_files<cr>", opts)
 
 keymap("n", "<leader>r", ":term cargo run<cr>", opts)
 keymap("n", "<leader>h", ":term rustc %<cr>", opts)
