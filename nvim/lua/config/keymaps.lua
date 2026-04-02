@@ -3,6 +3,8 @@ vim.g.mapleader = " "
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
+keymap("n", "<leader>v", "<cmd>find ~/.config/nvim/init.lua<cr>", opts)
+
 keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)
 

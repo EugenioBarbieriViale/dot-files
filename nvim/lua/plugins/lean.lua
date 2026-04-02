@@ -19,5 +19,11 @@ return {
 	---@type lean.Config
 	opts = { -- see below for full configuration options
 		mappings = true,
+		goal_markers = {
+			-- unsolved = " ⚒ ", -- shown inline in incomplete proofs
+			-- accomplished = " ", -- shown in the sign column for completed proofs
+			unsolved = "", -- shown inline in incomplete proofs
+			accomplished = " ", -- shown in the sign column for completed proofs
+		},
 	},
 }

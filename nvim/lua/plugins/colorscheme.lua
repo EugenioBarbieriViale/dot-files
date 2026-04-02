@@ -1,4 +1,5 @@
 local colorscheme = "rose-pine"
+-- local colorscheme = "kanagawa"
 
 local schemes = {
 	["kanagawa"] = {
