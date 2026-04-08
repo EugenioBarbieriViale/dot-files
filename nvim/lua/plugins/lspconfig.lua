@@ -9,7 +9,7 @@ return {
 
 		-- Format on save handler
 		vim.api.nvim_create_autocmd("LspAttach", {
-			group = vim.api.nvim_create_augroup("Format", { clear = true }),
+			group = vim.api.nvim_create_augroup("Format", { clear = false }),
 			callback = function(args)
 				local client = vim.lsp.get_client_by_id(args.data.client_id)
 				if client and client.server_capabilities.documentFormattingProvider then
@@ -23,12 +23,30 @@ return {
 			end,
 		})
 
-		local servers = { "eslint", "jsonls", "pyright", "rust_analyzer", "clangd", "texlab" }
+		local servers = {
+			"eslint",
+			"jsonls",
+			"pyright",
+			"ruff",
+			"rust_analyzer",
+			"clangd",
+			"texlab",
+			"gopls",
+			"lua_ls",
+			"opencl_ls",
+			"ts_ls",
+		}
 		for _, server in ipairs(servers) do
 			vim.lsp.config(server, {
 				capabilities = capabilities,
 			})
 			vim.lsp.enable(server)
 		end
+
+		vim.diagnostic.enable = true
+		vim.diagnostic.config({
+			virtual_text = true,
+			-- virtual_lines = true,
+		})
 	end,
 }

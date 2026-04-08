@@ -26,6 +26,14 @@ return {
 				"eslint",
 				"jsonls",
 				"pyright",
+				"ruff",
+				"rust_analyzer",
+				"clangd",
+				"texlab",
+				"gopls",
+				"lua_ls",
+				"opencl_ls",
+				"ts_ls",
 			},
 		})
 
@@ -33,9 +41,6 @@ return {
 			ensure_installed = {
 				"prettier",
 				"stylua",
-				"isort",
-				"black",
-				"pylint",
 				"eslint_d",
 			},
 		})
