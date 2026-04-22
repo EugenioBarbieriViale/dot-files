@@ -5,22 +5,13 @@
 #  _| |_) | (_| \__ \ | | | | | (__
 # (_)_.__/ \__,_|___/_| |_|_|  \___|
 
-
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 export HISTCONTROL=ignoreboth:erasedups
+shopt -s autocd # cd dir/ by typing only the name
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
-
-# cd dir/ by typing only the name
-shopt -s autocd
-
-alias vim='nvim'
-alias .vimrc='nvim ~/.config/nvim/init.lua'
+PS1='[\033[32m\u\[\e[m\]@\h \033[32m\W\[\e[m\]$(__git_ps1 " (%s)")]\$ '
 
 # handy aliases
 alias ls='ls -hN --color=auto --group-directories-first'
@@ -29,31 +20,31 @@ alias la='ls -A'
 alias lla='ls -la'
 alias l='ls -CF'
 alias grep='grep --color=auto'
+
+alias vim='nvim'
+alias .vimrc='vim ~/.config/nvim/init.lua'
 alias .bashrc='vim ~/.bashrc'
 alias so='source ~/.bashrc'
-alias ccat='highlight --out-format=ansi'
 
-alias blue='bluetuith'
-
-alias monero="monero-wallet-gui"
+alias blue='bluetui'
 
 alias monitor="xrandr --output eDP1 --auto --output HDMI2 --auto --right-of eDP1"
 alias lim="xrandr --output eDP1 --auto --output HDMI2 --auto --same-as eDP1"
-alias nitro="nitrogen --set-zoom-fill --random /home/eu/Pictures/wallpapers"
 
 alias open="xdg-open"
-
 alias birth="echo 16 November 2023"
-
-alias scan="iwctl station wlan0 scan"
 
 alias it="setxkbmap -layout it"
 alias us="setxkbmap -layout us"
 
-alias sy="rsync -av ~/.config/nvim/ ~/programming/dot-files/nvim/"
+alias gonio="open ~/scuola/all-my-latex/Goniometria/gonio.pdf &"
 
 export RUST_BACKTRACE=1
 
 nerdfetch
 ./.girlfriend.sh
 ./system-update
+source .git-prompt.sh
+
+# Created by `pipx` on 2026-02-11 20:13:57
+export PATH="$PATH:/home/eu/.local/bin"
