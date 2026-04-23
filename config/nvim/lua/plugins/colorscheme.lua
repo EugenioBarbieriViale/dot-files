@@ -13,7 +13,7 @@ local schemes = {
 				keywordStyle = { italic = true },
 				statementStyle = { bold = true },
 				typeStyle = {},
-				transparent = false,
+				transparent = true,
 				dimInactive = false,
 				terminalColors = true,
 				colors = { palette = {}, theme = { wave = {}, lotus = {}, dragon = {}, all = {} } },
@@ -33,7 +33,7 @@ local schemes = {
 				dark_variant = "main",
 				dim_inactive_windows = false,
 				extend_background_behind_borders = true,
-				styles = { bold = true, italic = true, transparency = false },
+				styles = { bold = true, italic = true, transparency = true },
 			})
 		end,
 	},
