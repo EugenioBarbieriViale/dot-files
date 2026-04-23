@@ -24,13 +24,10 @@ alias grep='grep --color=auto'
 alias vim='nvim'
 alias .vimrc='vim ~/.config/nvim/init.lua'
 alias .bashrc='vim ~/.bashrc'
+alias hy='vim ~/.config/hypr/hyprland.conf'
 alias so='source ~/.bashrc'
 
 alias blue='bluetui'
-
-alias monitor="xrandr --output eDP1 --auto --output HDMI2 --auto --right-of eDP1"
-alias lim="xrandr --output eDP1 --auto --output HDMI2 --auto --same-as eDP1"
-
 alias open="xdg-open"
 alias birth="echo 16 November 2023"
 
@@ -39,12 +36,9 @@ alias us="setxkbmap -layout us"
 
 alias gonio="open ~/scuola/all-my-latex/Goniometria/gonio.pdf &"
 
-export RUST_BACKTRACE=1
-
-nerdfetch
-./.girlfriend.sh
-./system-update
 source .git-prompt.sh
 
 # Created by `pipx` on 2026-02-11 20:13:57
 export PATH="$PATH:/home/eu/.local/bin"
+
+export RUST_BACKTRACE=1
