@@ -11,7 +11,7 @@
 export HISTCONTROL=ignoreboth:erasedups
 shopt -s autocd # cd dir/ by typing only the name
 
-PS1='[\033[32m\u\[\e[m\]@\h \033[32m\W\[\e[m\]$(__git_ps1 " (%s)")]\$ '
+PS1='[\[\033[32m\]\u\[\e[m\]@\h \[\033[32m\]\W\[\e[m\]$(__git_ps1 " (%s)")]\$ '
 
 # handy aliases
 alias ls='ls -hN --color=auto --group-directories-first'
@@ -24,7 +24,6 @@ alias grep='grep --color=auto'
 alias vim='nvim'
 alias .vimrc='vim ~/.config/nvim/init.lua'
 alias .bashrc='vim ~/.bashrc'
-alias hy='vim ~/.config/hypr/hyprland.conf'
 alias so='source ~/.bashrc'
 
 alias blue='bluetui'
@@ -35,6 +34,7 @@ alias it="setxkbmap -layout it"
 alias us="setxkbmap -layout us"
 
 alias gonio="open ~/scuola/all-my-latex/Goniometria/gonio.pdf &"
+alias mirror="xrandr --output eDP1 --rate 60 --mode 1920x1080 --fb 1920x1080 --panning 1920x1080* --output HDMI2 --mode 1920x1080 --same-as eDP1"
 
 source .git-prompt.sh
 
@@ -42,3 +42,5 @@ source .git-prompt.sh
 export PATH="$PATH:/home/eu/.local/bin"
 
 export RUST_BACKTRACE=1
+export GIT_EDITOR=nvim
+export EDITOR=nvim
