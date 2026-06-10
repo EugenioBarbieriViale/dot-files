@@ -182,6 +182,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-        status_command i3status --config /home/$USER/.config/i3/statusbar.conf
+        status_command i3status --config /home/$USER/.config/i3/statusbar.conf | /home/$USER/.config/i3/i3status_media.sh
         tray_output primary
 }

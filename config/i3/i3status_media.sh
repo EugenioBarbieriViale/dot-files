@@ -33,6 +33,12 @@ function format {
   elif [[ $_status == "Paused" ]]; then
     local symbol="⏸︎"
     color="#808080"
+<<<<<<< HEAD
+=======
+  # elif [[ $_status == "Stopped" ]]; then
+  #   local symbol="⏹"
+  #   color="#808080"
+>>>>>>> e2814365d3b8ca2eed653fb5e05c4a66600a1aeb
   else
     local symbol=""
     color="#000000"
