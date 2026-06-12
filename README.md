@@ -1,5 +1,4 @@
 # dot-files
-NICE wallpapers: https://github.com/dharmx/walls
 
-# Screenshots
+# Screenshot
 ![s1](screenshots/s1.png)

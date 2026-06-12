@@ -22,8 +22,10 @@ alias l='ls -CF'
 alias grep='grep --color=auto'
 
 alias vim='nvim'
+
 alias .vimrc='vim ~/.config/nvim/init.lua'
 alias .bashrc='vim ~/.bashrc'
+alias ii='vim ~/.config/i3/config'
 alias so='source ~/.bashrc'
 
 alias blue='bluetui'
@@ -44,3 +46,6 @@ export PATH="$PATH:/home/eu/.local/bin"
 export RUST_BACKTRACE=1
 export GIT_EDITOR=nvim
 export EDITOR=nvim
+
+# Added by install.sh
+source /home/eu/.local/bin/update.sh
