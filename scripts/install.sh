@@ -3,7 +3,7 @@
 FILE="update.sh"
 PATH="/home/eu/.local/bin/"
 BASHRC="/home/eu/.bashrc"
-STR="source ${PATH}${FILE}"
+STR="${PATH}${FILE}"
 
 if /usr/sbin/chmod +x "$FILE"; then
   echo "$FILE is now executable"

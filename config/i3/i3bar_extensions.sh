@@ -1,9 +1,17 @@
 #!/usr/bin/bash
-# playerctl and jq should be installed
+# playerctl and jq should be installed. python3 is also needed.
 
 function add_to_bar {
-  echo "$json_array" | jq --argjson arg_j "$1" '[$arg_j] + .'
+  local replacement="$1"
+  echo "$json_array" | jq --argjson arg_j "$replacement" '[$arg_j] + .'
 }
+
+function add_by_holder {
+  local instance="$1"
+  local replacement="$2"
+  echo "$json_array" | jq --argjson arg_j "$replacement" "(.[] | (select(.instance==\"$instance\"))) |= \$arg_j" 
+}
+
 
 function get_active_player {
   for player in $(/usr/bin/playerctl -l); do
@@ -14,7 +22,7 @@ function get_active_player {
   done
 }
 
-function format {
+function format_media {
   local player=$(get_active_player)
 
   if [[ -n $player ]]; then
@@ -49,6 +57,13 @@ function format {
   echo "{ \"name\": \"media\", \"markup\": \"none\", \"full_text\": \"$media\", \"color\": \"$color\" }"
 }
 
+function format_brightness {
+  local br=$(cat /sys/class/backlight/intel_backlight/brightness)
+  local scaled_br=$(python3 -c "print(round($br / 1515.0 * 100.0))")
+  echo "{ \"name\": \"brightness\", \"markup\": \"none\", \"full_text\": \"BRI: $scaled_br%\" }"
+}
+
+
 read line; echo "$line"
 read line; echo "$line"
 read line; echo "$line"
@@ -57,10 +72,12 @@ json_array="[]"
 
 while :
 do
-  json_media=$(format)
+  json_media=$(format_media)
+  json_brightness=$(format_brightness)
 
   read line
   json_array="$(echo $line | sed -e 's/^,//')"
   json_array=$(add_to_bar "$json_media")
+  json_array=$(add_by_holder "brightness_holder" "$json_brightness")
   echo ",$json_array"
 done
