@@ -1,18 +1,19 @@
 set $mod Mod4
 
-font pango:TerminessNerdFontMono 11
+# font pango:TerminessNerdFontMono 12
+font pango:IosevkaNerdFontMono-Regular 10
 
-exec --no-startup-id mullvad-vpn
-exec_always --no-startup-id sleep 1 && xinput --set-prop "6" "libinput Accel Speed" -0.4
+# exec --no-startup-id mullvad-vpn
+exec --no-startup-id mullvad connect
+exec_always --no-startup-id sleep 1 && xinput --set-prop 'INSTANT USB GAMING MOUSE ' "libinput Accel Speed" -0.5
 exec --no-startup-id picom
 exec --no-startup-id sleep 1 && redshift
 exec --no-startup-id dunst
-exec --no-startup-id feh --bg-fill Pictures/wallpapers/space.jpg
-# exec_always --no-startup-id .local/bin/fehbg.sh 5m
 exec --no-startup-id systemctl --user start clipmenud
+# exec --no-startup-id feh --bg-fill Pictures/wallpapers/space.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/turner.jpg
 
-# bindsym $mod+Shift+q exec pkill -f fehbg.sh, exec pkill -f redshift, exit
-bindsym $mod+Shift+q exec pkill -f redshift, exit
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --show-failed-attempts --nofork
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
@@ -26,6 +27,7 @@ floating_modifier $mod
 
 tiling_drag modifier titlebar
 
+# bindsym $mod+Return exec alacritty -o font.size=10
 bindsym $mod+Return exec alacritty -o font.size=10
 bindsym $mod+b exec librewolf
 bindsym $mod+e exec pcmanfm
@@ -33,14 +35,15 @@ bindsym $mod+z exec whatsdesk
 bindsym $mod+x exec spotify
 bindsym $mod+n exec thunderbird
 
-bindsym $mod+Ctrl+m exec mullvad connect
-bindsym $mod+Ctrl+n exec mullvad disconnect
+bindsym $mod+Shift+m exec mullvad connect
+bindsym $mod+Shift+n exec mullvad disconnect
 
 bindsym $mod+Shift+a exec librewolf /usr/share/doc/arch-wiki/html/en/
 
 bindsym $mod+q kill
 
-bindsym $mod+space exec --no-startup-id dmenu_run -fn "TerminessNerdFontMono:pixelsize=16"
+# bindsym $mod+space exec --no-startup-id dmenu_run -fn "TerminessNerdFontMono:pixelsize=16"
+bindsym $mod+space exec --no-startup-id dmenu_run -fn "IosevkaNerdFont-Bold:pixelsize=16"
 bindsym $mod+u exec --no-startup-id passmenu
 bindsym $mod+Shift+u exec --no-startup-id networkmanager_dmenu
 bindsym $mod+c exec --no-startup-id clipmenu
@@ -104,13 +107,13 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 assign [class="whatsdesk"] $ws3
-assign [class="spotify"] $ws3
-assign [class="thunderbird"] $ws3
+assign [class="Spotify"] $ws3
+assign [class="org.mozilla.Thunderbird"] $ws3
 
 bindsym $mod+Shift+c reload
-# bindsym $mod+Shift+r exec pkill -f fehbg.sh, restart
 bindsym $mod+Shift+r restart
-bindsym $mod+p exec /home/eu/.local/bin/lock_and_blur.sh
+bindsym $mod+Shift+q exit
+bindsym $mod+p exec i3lock --show-failed-attempts
 
 mode "resize" {
   bindsym l resize grow width 10 px or 10 ppt
@@ -127,8 +130,8 @@ bindsym $mod+r mode "resize"
 
 bar {
   position bottom
-  # strip_workspace_numbers yes
   tray_output primary
+  tray_output none
 
   status_command i3status --config $HOME/.config/i3/statusbar.conf | $HOME/.config/i3/i3bar_extensions.sh
 }
