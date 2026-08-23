@@ -37,6 +37,18 @@ alias us="setxkbmap -layout us"
 
 alias gonio="open ~/scuola/all-my-latex/Goniometria/gonio.pdf &"
 alias mirror="xrandr --output eDP1 --rate 60 --mode 1920x1080 --fb 1920x1080 --panning 1920x1080* --output HDMI2 --mode 1920x1080 --same-as eDP1"
+alias right="xrandr --output eDP1 --rate 60 --mode 1920x1080 --fb 3840x1080 --panning 1920x1080+0+0 --output HDMI2 --mode 1920x1080 --right-of eDP1"
+
+alias allowstud="xhost +SI:localuser:student"
+
+alias tailup="sudo tailscale up --exit-node=100.89.38.27 --exit-node-allow-lan-access"
+alias taildown="sudo tailscale down"
+alias server="ssh eu@100.89.38.27"
+alias lanserver="ssh eu@192.168.1.184"
+
+stty werase undef
+
+bind '"\C-w": backward-kill-word'
 
 source .git-prompt.sh
 
@@ -48,4 +60,4 @@ export GIT_EDITOR=nvim
 export EDITOR=nvim
 
 # Added by install.sh
-source /home/eu/.local/bin/update.sh
+/home/eu/.local/bin/update.sh
