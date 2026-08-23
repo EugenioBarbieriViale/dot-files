@@ -34,7 +34,6 @@ return {
 			"gopls",
 			"lua_ls",
 			"opencl_ls",
-			"ts_ls",
 		}
 		for _, server in ipairs(servers) do
 			vim.lsp.config(server, {

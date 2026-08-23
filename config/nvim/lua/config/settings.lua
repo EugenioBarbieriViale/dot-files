@@ -21,6 +21,7 @@ set.termguicolors = true
 set.fillchars = { eob = " " }
 set.shm = "I"
 set.laststatus = 3
+set.guicursor = "n-i-c-sm:block,v-t:block-blinkon500-blinkoff500-TermCursor"
 
 g.netrw_banner = 0
 g.netrw_winsize = 20

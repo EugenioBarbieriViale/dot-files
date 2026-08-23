@@ -1,28 +1,13 @@
-local colorscheme = "rose-pine"
--- local colorscheme = "kanagawa"
+-- local colorscheme = "rose-pine"
+local colorscheme = "silentium"
 
 local schemes = {
-	["kanagawa"] = {
-		plugin = { "rebelot/kanagawa.nvim", name = "kanagawa" },
+	["silentium"] = {
+		plugin = { "silentium-theme/silentium.nvim", name = "silentium" },
 		config = function()
-			require("kanagawa").setup({
-				compile = false,
-				undercurl = true,
-				commentStyle = { italic = true },
-				functionStyle = {},
-				keywordStyle = { italic = true },
-				statementStyle = { bold = true },
-				typeStyle = {},
-				transparent = true,
-				dimInactive = false,
-				terminalColors = true,
-				colors = { palette = {}, theme = { wave = {}, lotus = {}, dragon = {}, all = {} } },
-				overrides = function(_)
-					return {}
-				end,
-				theme = "wave",
-				background = { dark = "wave", light = "lotus" },
-			})
+			local silentium = require("silentium")
+			-- silentium.setup({ accent = silentium.accents.peach })
+			silentium.setup()
 		end,
 	},
 	["rose-pine"] = {

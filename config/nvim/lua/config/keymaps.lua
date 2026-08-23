@@ -17,8 +17,8 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<S-C-k>", ":resize +2<cr>", opts)
-keymap("n", "<S-C-j>", ":resize -2<cr>", opts)
+keymap("n", "<S-C-k>", ":resize -2<cr>", opts)
+keymap("n", "<S-C-j>", ":resize +2<cr>", opts)
 keymap("n", "<S-C-h>", ":vertical resize +2<cr>", opts)
 keymap("n", "<S-C-l>", ":vertical resize -2<cr>", opts)
 
@@ -46,3 +46,5 @@ keymap("n", "<leader>cg", ":term go run .<cr>", opts)
 keymap("n", "<leader>ws", "<Plug>(wrapping-soft-wrap-mode)", opts)
 keymap("n", "<leader>wh", "<Plug>(wrapping-hard-wrap-mode)", opts)
 keymap("n", "<leader>wt", "<Plug>(wrapping-toggle-wrap-mode)", opts)
+
+keymap("t", "<Esc>", "<C-\\><C-n>", opts)
